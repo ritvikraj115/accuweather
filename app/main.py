@@ -176,15 +176,15 @@ def keep_alive():
 #Schedule tasks (commented out for now)
 scheduler = BackgroundScheduler()
 scheduler.add_job(daily_job, 'cron', hour=0, minute=5, timezone='Asia/Kolkata')
-scheduler.add_job(keep_alive, 'interval', minutes=10)
+scheduler.add_job(keep_alive, 'interval', minutes=7)
 scheduler.add_job(refresh_zoho_token, 'interval', minutes=55)
 scheduler.start()
 
-# @app.on_event("startup")
-# def startup_event():
-#     print("🚀 Application startup: refreshing token and running daily job")
-#     refresh_zoho_token()
-#     daily_job()
+@app.on_event("startup")
+def startup_event():
+    print("🚀 Application startup: refreshing token and running daily job")
+    refresh_zoho_token()
+    daily_job()
 
 @app.get("/ping")
 def ping():
