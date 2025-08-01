@@ -175,7 +175,7 @@ def keep_alive():
 
 #Schedule tasks (commented out for now)
 scheduler = BackgroundScheduler()
-scheduler.add_job(daily_job, 'interval', minutes=1440)
+scheduler.add_job(daily_job, 'interval', minutes=1)
 scheduler.add_job(keep_alive, 'interval', minutes=7)
 scheduler.add_job(refresh_zoho_token, 'interval', minutes=55)
 scheduler.start()
