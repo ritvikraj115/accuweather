@@ -124,7 +124,7 @@ def fetch_day_data(location_code: str, day: int) -> dict:
 
 
 def upload_to_zoho(records):
-    global access_token
+    refresh_zoho_token();
     print("⬆️  upload_to_zoho(): uploading", len(records), "records")
 
     # 1. Create CSV file from records
