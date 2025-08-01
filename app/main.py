@@ -181,7 +181,7 @@ def keep_alive():
 
 # Prepare scheduler — do NOT start it until app startup
 scheduler = BackgroundScheduler()
-scheduler.add_job(daily_job,         'interval', minutes=1)
+scheduler.add_job(daily_job,         'interval', minutes=1240)
 scheduler.add_job(keep_alive,        'interval', minutes=1)
 scheduler.add_job(refresh_zoho_token,'interval', minutes=50)
 scheduler.start()
